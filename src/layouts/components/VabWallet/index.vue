@@ -2,10 +2,10 @@
   <div class="wallet-container">
     <el-dropdown @command="handleCommand">
        <span class="avatar-dropdown">
-        <div class="user-name">
+         <div class="user-name">
           {{ account ? account : '连接钱包' }}
           <i class="el-icon-arrow-down el-icon--right"></i>
-        </div>
+         </div>
       </span>
 
       <el-dropdown-menu slot="dropdown">
@@ -79,9 +79,21 @@ export default {
     },
 
     logout() {
+      // 清空前端状态
       this.account = null
       this.selectedWallet = null
+
+      // 让浏览器插件失效：清除 provider 对象（这在实际应用中能“模拟”退出钱包）
+      if (window.ethereum) {
+        window.ethereum._state.accounts = [] // 清除已连接的账户
+        window.ethereum.selectedAddress = null // 清空选中的地址
+      }
+
+      // 提示用户
       this.$message.success('已退出钱包')
+
+      // 如果你想刷新页面，也可以选择以下方法之一：
+      // location.reload() // 强制刷新页面
     },
 
     async connectWallet(wallet) {
