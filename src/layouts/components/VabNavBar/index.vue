@@ -18,7 +18,8 @@
           <vab-full-screen-bar @refresh="refreshRoute" />
           <vab-theme-bar class="hidden-xs-only" />
           <vab-icon :icon="['fas', 'redo']" :pulse="pulse" title="重载所有路由" @click="refreshRoute" />
-          <vab-avatar />
+<!--          <vab-avatar />-->
+          <vab-wallet />
           <!--  <vab-icon
             title="退出系统"
             :icon="['fas', 'sign-out-alt']"
@@ -32,9 +33,15 @@
 
 <script>
   import { mapActions, mapGetters } from 'vuex'
+  import VabWallet from "../VabWallet/index.vue";
+  import VabBreadcrumb from "../VabBreadcrumb/index.vue";
+  import VabFullScreenBar from "layouts/VabFullScreenBar/index.vue";
+  import VabThemeBar from "../VabThemeBar/index.vue";
+  import VabErrorLog from "layouts/VabErrorLog/index.vue";
 
   export default {
     name: 'VabNavBar',
+    components: {VabErrorLog, VabThemeBar, VabFullScreenBar, VabBreadcrumb, VabWallet},
     data() {
       return {
         pulse: false,

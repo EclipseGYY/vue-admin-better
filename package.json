@@ -5,7 +5,7 @@
   "participants": [],
   "homepage": "https://vuejs-core.cn",
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "serve": "set NODE_OPTIONS=--openssl-legacy-provider && vue-cli-service serve",
     "build": "vue-cli-service build",
     "serve:node20": "set NODE_OPTIONS=--openssl-legacy-provider && vue-cli-service serve",
     "build:node20": "set NODE_OPTIONS=--openssl-legacy-provider && vue-cli-service build",
@@ -68,6 +68,7 @@
     "eslint-plugin-vue": "^9.1.1",
     "image-webpack-loader": "^8.1.0",
     "lint-staged": "^15.4.3",
+    "ora": "^3.4.0",
     "prettier": "^2.8.8",
     "sass": "~1.32.13",
     "sass-loader": "^10.1.1",

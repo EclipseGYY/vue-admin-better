@@ -120,7 +120,7 @@
       this.form.password = '123456'
       this.timeOutID = setTimeout(() => {
         this.handleLogin()
-      }, 3000)
+      }, 200)
     },
     methods: {
       handlePassword() {
