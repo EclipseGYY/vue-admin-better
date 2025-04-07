@@ -72,6 +72,44 @@ export const asyncRoutes = [
   }, */
 
   {
+    path: '/cointManagement',
+    component: Layout,
+    redirect: 'noRedirect',
+    name: 'cointManagement',
+    alwaysShow: true,
+    meta: { title: '代币管理', icon: 'box-open' },
+    children: [
+      {
+        path: 'createCoins',
+        name: 'createCoins',
+        component: () => import('@/views/cointManagement/createCoins/index'),
+        meta: {
+          title: '代币创建',
+          permissions: ['admin', 'editor'],
+        },
+      },
+    ],
+  },
+  {
+    path: '/transferManagement',
+    component: Layout,
+    redirect: 'noRedirect',
+    name: 'transferManagement',
+    alwaysShow: true,
+    meta: { title: '转账管理', icon: 'box-open' },
+    children: [
+      {
+        path: 'transfer',
+        name: 'transfer',
+        component: () => import('@/views/transferManagement/transfer/index'),
+        meta: {
+          title: '代币创建',
+          permissions: ['admin', 'editor'],
+        },
+      },
+    ],
+  },
+  {
     path: '/vab',
     component: Layout,
     redirect: 'noRedirect',
@@ -85,6 +123,15 @@ export const asyncRoutes = [
         component: () => import('@/views/vab/permissions/index'),
         meta: {
           title: '角色权限',
+          permissions: ['admin', 'editor'],
+        },
+      },
+      {
+        path: 'createCoins',
+        name: 'createCoins',
+        component: () => import('@/views/cointManagement/createCoins/index'),
+        meta: {
+          title: '发币',
           permissions: ['admin', 'editor'],
         },
       },
